@@ -11,7 +11,7 @@ Download the Snowcrash ISO, create a VirtualBox VM, attach the ISO, and configur
 
 To download SnowCrash iso: https://cdn.intra.42.fr/isos/SnowCrash.iso
 
-<!-- ### Configuring a Bridged Network (VirtualBox) — Quick Instructions
+### Configuring a Bridged Network (VirtualBox) — Quick Instructions
 
 Follow these steps to place the VM and host on the same LAN/subnet.
 
@@ -42,7 +42,7 @@ Follow these steps to place the VM and host on the same LAN/subnet.
 
 > [!TIP]
 > Use the exact same network for the local machine and the VM. Don't use a VPN. <br>
-> Access the site in **HTTP**. -->
+> Access the site in **HTTP**.
 
 ## Tools I used:
 
