@@ -44,5 +44,7 @@ Follow these steps to place the VM and host on the same LAN/subnet.
 > Use the exact same network for the local machine and the VM. Don't use a VPN. <br>
 > Access the site in **HTTP**.
 
+Then you have to use the terminal to connect to the VM. 
+
 ## Tools I used:
 
