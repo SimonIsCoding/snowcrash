@@ -31,9 +31,9 @@ Follow these steps to place the VM and host on the same LAN/subnet.
 
 5. **Access the Snowcrash_IP_Adress in your web browser**
 
-<p align="center">
+<!-- <p align="center">
   <img src="prerequisites/Snowcrash_img.png" width="800">
-</p>
+</p> -->
 
 #### Network Configuration
 
