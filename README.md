@@ -66,3 +66,6 @@ Enter `level00` as the password (it won't be displayed — this is normal).
 ## Ressources I checked:
 - [OverTheWire.org](https://overthewire.org/wargames/bandit)
 - [pwnable_writeup](https://research.checkpoint.com/wp-content/uploads/2020/03/pwnable_writeup.pdf)
+- [ctf101.org](https://ctf101.org)
+- [dencode.com](https://dencode.com/en/)
+- [book.jorianwoltjer.com](https://book.jorianwoltjer.com)
