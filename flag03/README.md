@@ -107,6 +107,7 @@ The binary was launched:
 
 ```bash
 ./level03
+Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
 ```
 
 Because the binary runs as `flag03` (setuid), and it calls `env echo` which resolves to our fake `/tmp/exploit/echo`, the `getflag` command executes with `flag03`'s privileges — and prints the flag.
