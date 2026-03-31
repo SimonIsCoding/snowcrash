@@ -11,7 +11,7 @@ Download the Snowcrash ISO, create a VirtualBox VM, attach the ISO, and configur
 
 To download SnowCrash iso: https://cdn.intra.42.fr/isos/SnowCrash.iso
 
-### VM Settings (VirtualBox)
+### VM Prerequisites (VirtualBox)
 
 | Parameter | Value |
 |-----------|-------|
@@ -55,8 +55,6 @@ You should see:
 ```
 level00@127.0.0.1's password:
 ```
-<br>
-
 Enter `level00` as the password (it won't be displayed — this is normal).
 
 <p align="center">
