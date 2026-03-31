@@ -55,23 +55,13 @@ You should see:
 ```
 level00@127.0.0.1's password:
 ```
+<br>
 
 Enter `level00` as the password (it won't be displayed — this is normal).
 
 <p align="center">
   <img src="prerequisites/Snowcrash_img.png" width="800">
 </p>
-
-#### Network Configuration
-
-- If the VM uses DHCP, it should obtain an IP from the same network as the host.
-- If necessary, configure a static IP in the VM (gateway and netmask must match the host network).
-
-> [!TIP]
-> Use the exact same network for the local machine and the VM. Don't use a VPN. <br>
-> Access the site in **HTTP**.
-
-Then you have to use the terminal to connect to the VM. 
 
 ## Tools I used:
 
