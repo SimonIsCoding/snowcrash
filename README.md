@@ -28,6 +28,8 @@ To download SnowCrash iso: https://cdn.intra.42.fr/isos/SnowCrash.iso
    - **Attached to:** NAT
 3. Click **Advanced** → **Port Forwarding**
 4. Add the following rule:
+> [!WARNING]
+> My 4242 port was taken by another service, so I changed it with port 2222
 
 | Name | Protocol | Host IP | Host Port | Guest IP | Guest Port |
 |------|----------|---------|-----------|----------|------------|
@@ -69,3 +71,4 @@ Enter `level00` as the password (it won't be displayed — this is normal).
 - [ctf101.org](https://ctf101.org)
 - [dencode.com](https://dencode.com/en/)
 - [book.jorianwoltjer.com](https://book.jorianwoltjer.com)
+- [rot13.com](https://rot13.com/)
