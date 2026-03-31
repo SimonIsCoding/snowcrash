@@ -131,8 +131,6 @@ Reconstructed password after applying backspaces: **`ft_waNDReL0L`**
 
 ---
 
-**Flag:** `ft_waNDReL0L`
-
 ## Step 7 — Retrieve the flag
 
 Connect to the VM via SSH:
