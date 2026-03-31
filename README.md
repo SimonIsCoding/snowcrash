@@ -7,7 +7,7 @@ This repo contains my write-ups and reflections on the exploit challenges.
 
 ### Goal
 
-Download the Snowcrash ISO, create a VirtualBox VM, attach the ISO, and configure a bridged network so the VM and your host appear on the same LAN (same subnet) and can reach each other directly.
+Download the Snowcrash ISO, create a VirtualBox VM, attach the ISO, and configure a Port Forwarding so the VM and your host appear on the same subnet and can reach each other directly.
 
 To download SnowCrash iso: https://cdn.intra.42.fr/isos/SnowCrash.iso
 
