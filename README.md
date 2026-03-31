@@ -64,6 +64,8 @@ Enter `level00` as the password (it won't be displayed — this is normal).
 </p>
 
 ## Tools I used:
+- wireshark
+- ghidra
 
 ## Ressources I checked:
 - [OverTheWire.org](https://overthewire.org/wargames/bandit)
