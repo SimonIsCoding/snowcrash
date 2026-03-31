@@ -4,8 +4,6 @@
 
 This level requires analyzing a network capture file (`level02.pcap`) using Wireshark to extract credentials sent over a Telnet session in plaintext.
 
-**Flag:** `ft_waNDReL0L`
-
 ---
 
 ## Prerequisites
