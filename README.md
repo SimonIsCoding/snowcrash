@@ -64,8 +64,9 @@ Enter `level00` as the password (it won't be displayed — this is normal).
 </p>
 
 ## Tools I used:
-- wireshark
-- ghidra
+- [rot13.com](https://rot13.com/)
+- [wireshark](https://www.wireshark.org/download/)
+- [ghidra](https://github.com/nationalsecurityagency/ghidra)
 
 ## Ressources I checked:
 - [OverTheWire.org](https://overthewire.org/wargames/bandit)
@@ -73,4 +74,3 @@ Enter `level00` as the password (it won't be displayed — this is normal).
 - [ctf101.org](https://ctf101.org)
 - [dencode.com](https://dencode.com/en/)
 - [book.jorianwoltjer.com](https://book.jorianwoltjer.com)
-- [rot13.com](https://rot13.com/)
