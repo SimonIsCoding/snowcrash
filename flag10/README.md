@@ -86,6 +86,5 @@ getflag
 
 ## References
 
-- [OWASP — Race Conditions](https://owasp.org/www-community/vulnerabilities/Race_condition)
 - [CWE-367: Time-of-check Time-of-use (TOCTOU) Race Condition](https://cwe.mitre.org/data/definitions/367.html)
 - `man 2 access` — Warning section on TOCTOU
