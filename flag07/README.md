@@ -9,7 +9,7 @@ ls -la level07
 The binary has the **SUID bit set** (`rws`) for the user `flag07`:
 
 ```
--rwsr-sr-x 1 flag07 level07 ... level07
+-rwsr-sr-x 1 flag07  level07 8805 Mar  5  2016 level07
 ```
 
 This means: **when this binary is executed, it runs with the privileges of `flag07`**, not `level07`. This is the gateway to obtaining the flag — if we can make this binary execute `getflag` on our behalf, we win.
