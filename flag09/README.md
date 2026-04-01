@@ -86,7 +86,8 @@ int main()
 }
 ```
 
-Note: the `&& password[i] != '\n'` condition prevents the trailing newline byte from being processed, which would otherwise produce a garbage character at the end of the output.
+> [!NOTE]
+> the `&& password[i] != '\n'` condition prevents the trailing newline byte from being processed, which would otherwise produce a garbage character at the end of the output.
 
 ## Result
 
