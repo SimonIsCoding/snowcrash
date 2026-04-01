@@ -92,8 +92,8 @@ $m = preg_replace("/@/",  " y",  $m);  // replaces @ symbol      →  " y"
 ```
 foo@bar.com  →  foo y bar x com
 ```
-
-> ⚠️ Important: `y()` is called **before** the `/e` evaluation. Any payload must survive these substitutions intact.
+> [!IMPORTANT]
+> `y()` is called **before** the `/e` evaluation. Any payload must survive these substitutions intact.
 
 ---
 
@@ -198,10 +198,10 @@ Simply running PHP 7+ makes this entire class of attack impossible.
 Replace the vulnerable pattern with a callback function:
 
 ```php
-// ❌ Vulnerable
+// Vulnerable
 $a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
 
-// ✅ Safe
+// Safe
 $a = preg_replace_callback("/(\[x (.*)\])/", function($matches) {
     return y($matches[2]);
 }, $a);
