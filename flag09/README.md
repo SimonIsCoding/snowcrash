@@ -10,11 +10,11 @@
 Since no source code was provided, I started by observing the behavior of the binary with controlled inputs.
 
 ```bash
-$ echo "bbb" > test && ./level09 test
+$ echo "bbb" > bbb && ./level09 bbb
 bcd
 
-$ echo "aaa" > test && ./level09 test
-ace
+$ echo "aaa" > bbb && ./level09 bbb
+bcd
 ```
 
 A clear pattern emerged: each character of the **filename passed as argument** is shifted by its position index.
