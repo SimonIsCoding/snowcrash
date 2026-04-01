@@ -92,8 +92,8 @@ $m = preg_replace("/@/",  " y",  $m);  // replaces @ symbol      →  " y"
 ```
 foo@bar.com  →  foo y bar x com
 ```
-
-> ⚠️ Important: `y()` is called **before** the `/e` evaluation. Any payload must survive these substitutions intact.
+> [!IMPORTANT]
+> `y()` is called **before** the `/e` evaluation. Any payload must survive these substitutions intact.
 
 ---
 
