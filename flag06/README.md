@@ -198,10 +198,10 @@ Simply running PHP 7+ makes this entire class of attack impossible.
 Replace the vulnerable pattern with a callback function:
 
 ```php
-// ❌ Vulnerable
+// Vulnerable
 $a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
 
-// ✅ Safe
+// Safe
 $a = preg_replace_callback("/(\[x (.*)\])/", function($matches) {
     return y($matches[2]);
 }, $a);
