@@ -1,9 +1,5 @@
 # SnowCrash - Level 09
 
-## Context
-
-SnowCrash is a Capture The Flag (CTF) challenge where the goal is to capture a series of flags by exploiting binaries, permissions, and vulnerabilities on a Linux machine. This is the 10th flag (level09).
-
 ## Files available on the machine
 
 - `level09` : a compiled binary (no source code provided)
