@@ -1,17 +1,3 @@
-# SnowCrash — Flag07 Writeup
-
-> **Machine:** SnowCrash (École 42)
-> **Level:** level07 → flag07
-> **Vulnerability:** Environment Variable Injection via unsanitized `system()` call
-
----
-
-## Context
-
-In this challenge, we are logged in as `level07` and must retrieve the flag belonging to `flag07`. A binary executable is available in the home directory, but we cannot simply read the flag file directly — we need to exploit the binary itself.
-
----
-
 ## Step 1 — Discovering the Binary
 
 Upon logging in as `level07`, we find an executable in the home directory. Checking its permissions reveals something critical:
