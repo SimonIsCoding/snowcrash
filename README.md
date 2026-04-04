@@ -54,7 +54,7 @@ ssh -p 2222 level00@127.0.0.1
 ```
 
 You should see:
-```
+```shell
 level00@127.0.0.1's password:
 ```
 Enter `level00` as the password (it won't be displayed — this is normal).
