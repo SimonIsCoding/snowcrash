@@ -41,6 +41,10 @@ Three terminals are required, all SSH sessions into the VM.
 
 **Terminal 1 — Listener**
 
+```bash
+chmod 777 .
+```
+
 Start a netcat listener that restarts automatically after each connection, since the binary connects once and exits:
 
 ```bash
